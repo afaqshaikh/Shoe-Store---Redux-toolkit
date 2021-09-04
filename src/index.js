@@ -4,14 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {store} from './Config/store'
+import { store } from './Config/store'
 import { Provider } from "react-redux";
+import { CartProvider } from "./CartContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-    <App />
-    </Provider>
+    <CartProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </CartProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );

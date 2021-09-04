@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { selectProducts, remove, store, setTotalItems, setTotalAmount, selectTotalAmount, emptyCart } from '../Config/store'
 
 
@@ -83,7 +84,9 @@ const Cart = () => {
                     <div className="row text-end">
                         <div className="col">
                             <button className="btn btn-danger btn-lg" onClick={() => store.dispatch(emptyCart(products))}>Empty Cart</button>
+                            <Link className="btn btn-warning btn-lg" to="/checkout">Checkout</Link>
                         </div>
+
                     </div>
                 )}
 

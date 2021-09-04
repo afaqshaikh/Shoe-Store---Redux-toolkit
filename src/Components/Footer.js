@@ -1,7 +1,7 @@
 import "./index.css"
 const Footer = () => {
     return (
-        <div className="row footer mt-5 pt-3">
+        <div className="row footer  mt-5 pt-3">
             <div className="container p-4">
                 <div className="row">
                     <div className="col-6 text-center">

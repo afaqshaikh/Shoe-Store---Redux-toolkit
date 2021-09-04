@@ -5,7 +5,7 @@ import variablesSlice from "./slices/variableSlice";
 const store = configureStore({
   reducer : {
     cart : productSlice.reducer,
-    variables : variablesSlice.reducer
+    variables : variablesSlice.reducer,
   }
 })
 
