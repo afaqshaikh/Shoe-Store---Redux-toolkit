@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik"
 import * as Yup from 'yup';
+import { ShippingContext } from "../../../CartContext";
 
 const Address = ({ handleNext }) => {
+
+    const [ShippingState, setShippingContext] = useContext(ShippingContext);
+
     return (
         <Formik
             initialValues={{
@@ -41,6 +46,7 @@ const Address = ({ handleNext }) => {
             })}
             onSubmit={(values) => {
                 setTimeout(() => {
+                    setShippingContext({ ...ShippingState, ...values });
                     console.log(JSON.stringify(values, null, 2));
                     handleNext();
                 }, 400);
@@ -48,7 +54,7 @@ const Address = ({ handleNext }) => {
         >
             <Form>
                 <div className="mb-3">
-                    <label for="address" className="form-label">Address</label>
+                    <label htmlFor="address" className="form-label">Address</label>
                     <Field name="address" type="text" className="form-control" />
                     <ErrorMessage name="address">
                         {(msg) => <div className="text-danger">{msg}</div>}
@@ -57,7 +63,7 @@ const Address = ({ handleNext }) => {
                 </div>
 
                 <div className="mb-3">
-                    <label for="city" className="form-label">City </label>
+                    <label htmlFor="city" className="form-label">City </label>
                     <Field name="city" type="text" className="form-control" />
                     <ErrorMessage name="city">
                         {(msg) => <div className="text-danger">{msg}</div>}
@@ -65,7 +71,7 @@ const Address = ({ handleNext }) => {
                 </div>
 
                 <div className="mb-3">
-                    <label for="state" className="form-label">State </label>
+                    <label htmlFor="state" className="form-label">State </label>
                     <Field name="state" type="text" className="form-control" />
                     <ErrorMessage name="state">
                         {(msg) => <div className="text-danger">{msg}</div>}
@@ -73,7 +79,7 @@ const Address = ({ handleNext }) => {
                 </div>
 
                 <div className="mb-3">
-                    <label for="country" className="form-label">Country </label>
+                    <label htmlFor="country" className="form-label">Country </label>
                     <Field name="country" type="text" className="form-control" />
                     <ErrorMessage name="country">
                         {(msg) => <div className="text-danger">{msg}</div>}
@@ -81,14 +87,16 @@ const Address = ({ handleNext }) => {
                 </div>
 
                 <div className="mb-3">
-                    <label for="zipCode" className="form-label">Zip Code </label>
+                    <label htmlFor="zipCode" className="form-label">Zip Code </label>
                     <Field name="zipCode" type="text" className="form-control" />
                     <ErrorMessage name="zipCode">
                         {(msg) => <div className="text-danger">{msg}</div>}
                     </ErrorMessage>
                 </div>
+                <div className="d-grid">
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
             </Form>
 
         </Formik>

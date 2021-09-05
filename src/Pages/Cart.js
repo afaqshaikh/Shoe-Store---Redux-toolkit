@@ -4,6 +4,7 @@ import Footer from '../Components/Footer'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { selectProducts, remove, store, setTotalItems, setTotalAmount, selectTotalAmount, emptyCart } from '../Config/store'
+import "./index.css"
 
 
 const Cart = () => {
@@ -81,8 +82,8 @@ const Cart = () => {
                     </tbody>
                 </table>
                 {cartProduct.length > 0 &&(
-                    <div className="row text-end">
-                        <div className="col">
+                    <div className="row">
+                        <div className="col d-grid gap-2 d-md-flex  justify-content-md-end">
                             <button className="btn btn-danger btn-lg" onClick={() => store.dispatch(emptyCart(products))}>Empty Cart</button>
                             <Link className="btn btn-warning btn-lg" to="/checkout">Checkout</Link>
                         </div>

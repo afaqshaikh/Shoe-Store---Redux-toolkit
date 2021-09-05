@@ -12,12 +12,13 @@ const ProductItems = () => {
     return(
         <>
         <Header/>
-        <div className="container mt-3">
-            <div className="row">
-                <div className="col">
-                    <h3 className="text-center">Our Products </h3>
+        <div className="row">
+                <div className="col  cart-home-image">
+                    <h3 className="text-center text-white">Our Products </h3>
                 </div>
             </div>
+        <div className="container mt-3">
+           
             <div className="row mt-1  row-cols-1 row-cols-md-3 g-4">
                 {products.map((v,i) => {
                     return <div className="col" key={i}>

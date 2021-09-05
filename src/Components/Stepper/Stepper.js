@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Address from './Forms/Address';
 import PersonalInfo from './Forms/PersonalInfo';
+import OrderSummary from './Forms/OrderSummary';
+import PlaceOrder from '../../Pages/PlaceOrder';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,8 +33,8 @@ function getStepContent(stepIndex, handleNext) {
             return <PersonalInfo handleNext={handleNext} />;
         case 1:
             return <Address handleNext={handleNext} />;
-        // case 2:
-        //     return <FormThree handleNext={handleNext} />;
+        case 2:
+            return <OrderSummary handleNext={handleNext} />;
         default:
             return 'Unknown stepIndex';
     }
@@ -63,8 +65,11 @@ export default function StepperComponent() {
             <div>
                 {activeStep === steps.length ? (
                     <div>
-                        <Typography className={classes.instructions}>All steps completed</Typography>
-                        <Button onClick={handleReset}>Reset</Button>
+                        <PlaceOrder />
+                        <div className="d-grid">
+
+                            <button className="btn btn-primary" onClick={handleReset}>Reset</button>
+                        </div>
                     </div>
                 ) : (
                     <div>

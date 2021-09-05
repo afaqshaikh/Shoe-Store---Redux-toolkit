@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik"
 import * as Yup from 'yup';
+import { ShippingContext } from "../../../CartContext";
 
 const PersonalInfo = ({ handleNext }) => {
+
+    const [ShippingState, setShippingContext] = useContext(ShippingContext);
+
     return (
         <Formik
             initialValues={{
@@ -22,6 +27,7 @@ const PersonalInfo = ({ handleNext }) => {
             })}
             onSubmit={(values) => {
                 setTimeout(() => {
+                    setShippingContext(values)
                     console.log(JSON.stringify(values, null, 2));
                     handleNext();
                 }, 400);
@@ -29,7 +35,7 @@ const PersonalInfo = ({ handleNext }) => {
         >
             <Form>
                 <div className="mb-3">
-                    <label for="firstName" className="form-label">First Name</label>
+                    <label htmlFor="firstName" className="form-label">First Name</label>
                     <Field name="firstName" type="text" className="form-control" />
                     <ErrorMessage name="firstName">
                         {(msg) => <div className="text-danger">{msg}</div>}
@@ -37,7 +43,7 @@ const PersonalInfo = ({ handleNext }) => {
                 </div>
 
                 <div className="mb-3">
-                    <label for="lastName" className="form-label">Last Name</label>
+                    <label htmlFor="lastName" className="form-label">Last Name</label>
                     <Field name="lastName" type="text" className="form-control" />
                     <ErrorMessage name="lastName">
                         {(msg) => <div className="text-danger">{msg}</div>}
@@ -48,15 +54,17 @@ const PersonalInfo = ({ handleNext }) => {
                 <div className="mb-3">
 
 
-                    <label for="email" className="form-label">Email </label>
+                    <label htmlFor="email" className="form-label">Email </label>
                     <Field name="email" type="text" className="form-control" />
                     <ErrorMessage name="email">
                         {(msg) => <div className="text-danger">{msg}</div>}
                     </ErrorMessage>
                 </div>
 
+                <div className="d-grid">
+                <button type="submit" className=" btn btn-primary">Submit</button>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
             </Form>
 
         </Formik>
