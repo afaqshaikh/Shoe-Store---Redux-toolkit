@@ -28,7 +28,6 @@ const PersonalInfo = ({ handleNext }) => {
             onSubmit={(values) => {
                 setTimeout(() => {
                     setShippingContext(values)
-                    console.log(JSON.stringify(values, null, 2));
                     handleNext();
                 }, 400);
             }}

@@ -47,7 +47,6 @@ const Address = ({ handleNext }) => {
             onSubmit={(values) => {
                 setTimeout(() => {
                     setShippingContext({ ...ShippingState, ...values });
-                    console.log(JSON.stringify(values, null, 2));
                     handleNext();
                 }, 400);
             }}
