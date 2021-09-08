@@ -3,12 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Address from './Forms/Address';
 import PersonalInfo from './Forms/PersonalInfo';
 import OrderSummary from './Forms/OrderSummary';
 import PlaceOrder from '../../Pages/PlaceOrder';
+import { Link } from 'react-router-dom';
+import "../index.css"
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,9 +51,9 @@ export default function StepperComponent() {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
-    };
+    // const handleReset = () => {
+    //     setActiveStep(0);
+    // };
 
     return (
         <div className={classes.root}>
@@ -67,8 +69,8 @@ export default function StepperComponent() {
                     <div>
                         <PlaceOrder />
                         <div className="d-grid">
-
-                            <button className="btn btn-primary" onClick={handleReset}>Reset</button>
+                            <Link className="btn form-btn"  to="/">Back To Home</Link>
+                            {/* <button className="btn btn-primary" onClick={handleReset}>Reset</button> */}
                         </div>
                     </div>
                 ) : (

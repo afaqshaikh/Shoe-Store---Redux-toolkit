@@ -4,6 +4,8 @@ import { ShippingContext } from "../../../CartContext"
 import { useSelector } from "react-redux"
 import { selectTotalAmount, selectProducts, store, emptyCart, setTotalItems} from "../../../Config/store"
 import { CartContext } from "../../../CartContext"
+import "../../index.css"
+
 
 const OrderSummary = ({ handleNext }) => {
     const product = useSelector(selectProducts)
@@ -83,7 +85,7 @@ const OrderSummary = ({ handleNext }) => {
                     </div>
                 </div>
                 <div className="d-grid">
-                    <button type="submit" className=" btn btn-primary mt-3">Place Order</button>
+                    <button type="submit" className="form-btn btn  mt-3">Place Order</button>
 
                 </div>
 

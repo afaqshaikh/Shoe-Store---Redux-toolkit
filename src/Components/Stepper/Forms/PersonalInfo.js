@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik"
 import * as Yup from 'yup';
 import { ShippingContext } from "../../../CartContext";
+import "../../index.css"
+
 
 const PersonalInfo = ({ handleNext }) => {
 
@@ -61,7 +63,7 @@ const PersonalInfo = ({ handleNext }) => {
                 </div>
 
                 <div className="d-grid">
-                <button type="submit" className=" btn btn-primary">Submit</button>
+                <button type="submit" className="form-btn btn ">Submit</button>
 
                 </div>
             </Form>

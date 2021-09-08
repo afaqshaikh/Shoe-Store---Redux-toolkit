@@ -1,8 +1,11 @@
 .navbar{
     background-color: #3439ba;
-
 }
 .footer{
     background-color: rgb(37, 39, 105);
 
+}
+.form-btn{
+    background-color: #3439ba !important;
+    color: #fff !important;
 }
